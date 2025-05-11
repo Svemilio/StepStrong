@@ -7,16 +7,37 @@ public class UIManager : MonoBehaviour
     private string currentWorkoutName = "";
     private bool addDayWorkout = false;
 
+    private float widthContetWorkout;
+
     [SerializeField]
     RectTransform contentExercises;
+    [SerializeField]
+    RectTransform contentWorkouts;
     [SerializeField]
     TextMeshProUGUI workoutName;
     [SerializeField]
     GameObject buttonAddDayWorkout;
+    [SerializeField]
+    GameObject scrollViewWorkout;
+
+    public Canvas canvasWorkout;
+    public Canvas canvasExercise;
+
+    public static UIManager instance;
+
+    void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Vector2 currentSize = contentWorkouts.sizeDelta;
+        widthContetWorkout = currentSize.x;
     }
     public void AddExerciseToScrollView(Transform inputField)
     {
@@ -51,5 +72,28 @@ public class UIManager : MonoBehaviour
         }
         workoutName.text = "";
         buttonAddDayWorkout.SetActive(false);
+    }
+
+    public void ActiveCanvasWorkout()
+    {
+        canvasExercise.transform.gameObject.SetActive(false);
+        canvasWorkout.transform.gameObject.SetActive(true);
+    }
+
+    public void AddWorkout()
+    {
+        Vector2 currentSize = contentWorkouts.sizeDelta;
+        currentSize.x = currentSize.x * 2;
+        contentWorkouts.sizeDelta = currentSize;
+
+        Instantiate(scrollViewWorkout, contentWorkouts.transform);
+    }
+
+    public void ScrollNextWorkout()
+    {
+        Vector2 currentPos = contentWorkouts.GetComponent<RectTransform>().anchoredPosition;
+        currentPos.x += widthContetWorkout;
+
+        contentWorkouts.GetComponent<RectTransform>().anchoredPosition = currentPos;
     }
 }
