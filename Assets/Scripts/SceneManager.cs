@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [Serializable]
 class Exercise
@@ -22,6 +21,11 @@ struct Workout
 public class SceneManager : MonoBehaviour
 {
     private List<Workout> workouts = new List<Workout>();
+
+    private string currentExerciseName;
+    private string currentExerciseDescription;
+
+    private string currentWorkoutName;
     private UIManager uIManager;
     public static SceneManager instance;
 
@@ -55,20 +59,22 @@ public class SceneManager : MonoBehaviour
         }
         Workout newWorkout = new Workout { WorkoutName = workoutName.text };
         workouts.Add(newWorkout);
+        currentWorkoutName = workoutName.text;
         SaveWorkouts();
     }
 
-    public void AddExerciseToWorkout(string workoutName, string exerciseName, string description)
+    public void AddExerciseToWorkout()
     {
+        Debug.Log("workout = " + currentWorkoutName + "Exercise = " + currentExerciseName + "Desc = " + currentExerciseDescription);
         Exercise newExercise = new Exercise
         {
-            ExecutionName = exerciseName,
-            ExecutionDescription = description
+            ExecutionName = currentExerciseName,
+            ExecutionDescription = currentExerciseDescription
         };
 
         foreach( var w in workouts)
         {
-            if(w.WorkoutName.Equals(workoutName))
+            if(w.WorkoutName.Equals(currentExerciseName))
             {
                 w.Exercises.Add(newExercise);
                 break;
@@ -87,6 +93,7 @@ public class SceneManager : MonoBehaviour
     private void SaveWorkouts()
     {
         string json = JsonUtility.ToJson(new WorkoutListWrapper { Workouts = workouts });
+        Debug.Log("Elementi salvati = " + json);
         PlayerPrefs.SetString("WorkoutsData", json);
         PlayerPrefs.Save();
     }
@@ -105,6 +112,17 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    public void SetCurrentExerciseName(TextMeshProUGUI exerciseName)
+    {
+        currentExerciseName = exerciseName.text;
+        Debug.Log("Name = " + currentExerciseName);
+    }
+
+    public void SetCurrentExerciseDescription(TextMeshProUGUI exerciseDescription)
+    {
+        currentExerciseDescription = exerciseDescription.text;
+        Debug.Log("Desc = " + currentExerciseDescription);
+    }
     // Wrapper per serializzare liste
     [System.Serializable]
     private class WorkoutListWrapper

@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     private float widthContetWorkout;
 
     [SerializeField]
-    RectTransform contentExercises;
+    public RectTransform contentExercises;
     [SerializeField]
     RectTransform contentWorkouts;
     [SerializeField]
