@@ -71,7 +71,6 @@ public class SceneManager : MonoBehaviour
             ExecutionDescription = currentExerciseDescription
         };
 
-
         if(currentExerciseName == String.Empty)
         {
             Debug.Log("E' vuotaaa");
@@ -98,6 +97,7 @@ public class SceneManager : MonoBehaviour
                 w.Exercises.Add(newExercise);
             }
         }
+        currentExerciseName = String.Empty;
         SaveWorkouts();
     }
 
@@ -118,6 +118,7 @@ public class SceneManager : MonoBehaviour
 
     private void LoadWorkouts()
     {
+        //TODO: instanziare tutti gli oggetti presenti nel json
         if (PlayerPrefs.HasKey("WorkoutsData"))
         {
             string json = PlayerPrefs.GetString("WorkoutsData");
@@ -125,9 +126,14 @@ public class SceneManager : MonoBehaviour
             Debug.Log("Workout già presenti = " + json);
         }
 
-        if(workouts != null)
+        if (workouts != null)
         {
-            
+            List<string> workoutsName = new List<string>();
+            foreach (var w in workouts)
+            {
+                workoutsName.Add(w.WorkoutName);
+            }
+            uIManager.SetWorkoutNameList(workoutsName);
         }
     }
 

@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     private const int extraHeight = 930;
-    private string currentWorkoutName = "";
+    private List<string> currentWorkoutName = new List<string>();
     private bool addDayWorkout = false;
+
+    private int workoutIndex = 0;
 
     private float widthContetWorkout;
 
@@ -21,13 +24,13 @@ public class UIManager : MonoBehaviour
     GameObject scrollViewWorkout;
 
     public Canvas canvasWorkout;
-    public Canvas canvasExercise;
+    public Canvas canvasAddDayWorkout;
 
     public static UIManager instance;
 
     void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -39,9 +42,15 @@ public class UIManager : MonoBehaviour
         Vector2 currentSize = contentWorkouts.sizeDelta;
         widthContetWorkout = currentSize.x;
     }
+
+    public void SetWorkoutNameList(List<string> workoutsName)
+    {
+        currentWorkoutName = workoutsName;
+    }
+    
     public void AddExerciseToScrollView(Transform inputField)
     {
-        if(!addDayWorkout)
+        if (!addDayWorkout)
         {
             addDayWorkout = true;
             ActiveButtonAddWorkout();
@@ -54,8 +63,8 @@ public class UIManager : MonoBehaviour
 
     public void UpdateWorkoutName(TextMeshProUGUI workoutName)
     {
-        this.currentWorkoutName = workoutName.text;
-        this.workoutName.text = currentWorkoutName;
+        this.currentWorkoutName.Add(workoutName.text);
+        this.workoutName.text = currentWorkoutName[0];
     }
 
     private void ActiveButtonAddWorkout()
@@ -76,10 +85,11 @@ public class UIManager : MonoBehaviour
 
     public void ActiveCanvasWorkout()
     {
-        canvasExercise.transform.gameObject.SetActive(false);
+        canvasAddDayWorkout.transform.gameObject.SetActive(false);
         canvasWorkout.transform.gameObject.SetActive(true);
     }
 
+    //instance a new scroll view vertical for the workout data
     public void AddWorkout()
     {
         Vector2 currentSize = contentWorkouts.sizeDelta;
@@ -87,13 +97,39 @@ public class UIManager : MonoBehaviour
         contentWorkouts.sizeDelta = currentSize;
 
         Instantiate(scrollViewWorkout, contentWorkouts.transform);
+
+        canvasAddDayWorkout.gameObject.SetActive(true);
+        canvasWorkout.gameObject.SetActive(false);
     }
 
     public void ScrollNextWorkout()
     {
-        Vector2 currentPos = contentWorkouts.GetComponent<RectTransform>().anchoredPosition;
-        currentPos.x += widthContetWorkout;
+        int checkIndex = workoutIndex + 1;
+        //if click the button but there isn't any workout
+        if (currentWorkoutName.Count < checkIndex)
+        {
+            return;
+        }
+        Vector2 currentContentPos = contentWorkouts.GetComponent<RectTransform>().anchoredPosition;
+        currentContentPos.x -= widthContetWorkout;
 
-        contentWorkouts.GetComponent<RectTransform>().anchoredPosition = currentPos;
+        contentWorkouts.GetComponent<RectTransform>().anchoredPosition = currentContentPos;
+        this.workoutName.text = currentWorkoutName[++workoutIndex];
+    }
+
+    public void ScrollPreviousWorkout()
+    {
+        int checkIndex = workoutIndex - 1;
+        //if click the button but there isn't any workout
+        if (checkIndex < 0)
+        {
+            return;
+        }
+
+        Vector2 currentContentPos = contentWorkouts.GetComponent<RectTransform>().anchoredPosition;
+        currentContentPos.x += widthContetWorkout;
+
+        contentWorkouts.GetComponent<RectTransform>().anchoredPosition = currentContentPos;
+        this.workoutName.text = currentWorkoutName[--workoutIndex];
     }
 }
