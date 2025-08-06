@@ -106,7 +106,9 @@ public class UIManager : MonoBehaviour
     {
         int checkIndex = workoutIndex + 1;
         //if click the button but there isn't any workout
-        if (currentWorkoutName.Count < checkIndex)
+        Debug.Log("checkIndex " + checkIndex + " -  currentWorkoutNameCount" + currentWorkoutName.Count);
+     
+        if (currentWorkoutName.Count <= checkIndex)
         {
             return;
         }
