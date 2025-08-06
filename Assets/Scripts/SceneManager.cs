@@ -73,23 +73,20 @@ public class SceneManager : MonoBehaviour
 
         if(currentExerciseName == String.Empty)
         {
-            Debug.Log("E' vuotaaa");
             return;
         }
-
-        Debug.Log("Azzo");
-
-        foreach( var w in workouts)
+        
+        foreach (var w in workouts)
         {
-            if(w.WorkoutName.Equals(currentWorkoutName))
+            if (w.WorkoutName.Equals(currentWorkoutName))
             {
-                if(w.Exercises == null)
+                if (w.Exercises == null)
                 {
                     w.Exercises = new List<Exercise>();
                 }
-                foreach(var e in w.Exercises)
+                foreach (var e in w.Exercises)
                 {
-                    if(e.ExecutionName == currentExerciseName)
+                    if (e.ExecutionName == currentExerciseName)
                     {
                         return;
                     }
@@ -106,6 +103,7 @@ public class SceneManager : MonoBehaviour
         uIManager.ActiveCanvasWorkout();
         uIManager.UpdateWorkoutName(workoutName);
         AddWorkout(workoutName);
+        uIManager.GoToCurrentWorkoutPage();
     }
 
     private void SaveWorkouts()

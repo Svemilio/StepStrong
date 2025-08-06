@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
     {
         currentWorkoutName = workoutsName;
     }
-    
+
     public void AddExerciseToScrollView(Transform inputField)
     {
         if (!addDayWorkout)
@@ -107,7 +107,7 @@ public class UIManager : MonoBehaviour
         int checkIndex = workoutIndex + 1;
         //if click the button but there isn't any workout
         Debug.Log("checkIndex " + checkIndex + " -  currentWorkoutNameCount" + currentWorkoutName.Count);
-     
+
         if (currentWorkoutName.Count <= checkIndex)
         {
             return;
@@ -133,5 +133,13 @@ public class UIManager : MonoBehaviour
 
         contentWorkouts.GetComponent<RectTransform>().anchoredPosition = currentContentPos;
         this.workoutName.text = currentWorkoutName[--workoutIndex];
+    }
+
+    public void GoToCurrentWorkoutPage()
+    {
+        for (int i = 0; i < currentWorkoutName.Count; i++)
+        {
+            ScrollNextWorkout();
+        }
     }
 }
