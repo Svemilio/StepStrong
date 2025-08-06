@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     private float widthContetWorkout;
 
     [SerializeField]
-    public RectTransform contentExercises;
+    public List<RectTransform> contentExercises;
     [SerializeField]
     RectTransform contentWorkouts;
     [SerializeField]
@@ -55,10 +55,10 @@ public class UIManager : MonoBehaviour
             addDayWorkout = true;
             ActiveButtonAddWorkout();
         }
-        Instantiate(inputField, contentExercises.transform);
-        Vector2 currentSize = contentExercises.sizeDelta;
+        Instantiate(inputField, contentExercises[workoutIndex].transform);
+        Vector2 currentSize = contentExercises[workoutIndex].sizeDelta;
         currentSize.y += extraHeight;
-        contentExercises.sizeDelta = currentSize;
+        contentExercises[workoutIndex].sizeDelta = currentSize;
     }
 
     public void UpdateWorkoutName(TextMeshProUGUI workoutName)
@@ -75,7 +75,7 @@ public class UIManager : MonoBehaviour
     public void ResetWorkoutCanvas()
     {
         addDayWorkout = false;
-        foreach (Transform child in contentExercises.transform)
+        foreach (Transform child in contentExercises[workoutIndex].transform)
         {
             Destroy(child.gameObject);
         }
@@ -96,7 +96,11 @@ public class UIManager : MonoBehaviour
         currentSize.x = currentSize.x * 2;
         contentWorkouts.sizeDelta = currentSize;
 
-        Instantiate(scrollViewWorkout, contentWorkouts.transform);
+        GameObject instance = Instantiate(scrollViewWorkout, contentWorkouts.transform);
+
+        RectTransform newRectTransform = instance.transform.Find("Viewport/Content").GetComponent<RectTransform>();
+        
+        contentExercises.Add(newRectTransform);
 
         canvasAddDayWorkout.gameObject.SetActive(true);
         canvasWorkout.gameObject.SetActive(false);

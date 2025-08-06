@@ -1236,7 +1236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ca1c3a1f01547cbbd92afae66ecc5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentExercises: {fileID: 347713419}
+  contentExercises:
+  - {fileID: 347713419}
   contentWorkouts: {fileID: 1843633340}
   workoutName: {fileID: 1049630025}
   buttonAddDayWorkout: {fileID: 1519145062}
