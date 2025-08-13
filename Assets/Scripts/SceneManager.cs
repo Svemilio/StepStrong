@@ -132,6 +132,20 @@ public class SceneManager : MonoBehaviour
                 workoutsName.Add(w.WorkoutName);
             }
             uIManager.SetWorkoutNameList(workoutsName);
+
+            foreach (var w in workouts)
+            {
+                Debug.Log("Nome workout = " + w.WorkoutName);
+                uIManager.AddWorkout(true);
+
+                foreach (var e in w.Exercises)
+                {
+                    Debug.Log("Esercizio = " + e.ExecutionName + " desc = " + e.ExecutionDescription);
+                    var exercise = uIManager.GetPanelExerciseWithData(e.ExecutionName, e.ExecutionDescription);
+                    uIManager.AddExerciseToScrollView(exercise.transform);
+                }
+                uIManager.ScrollNextWorkout();
+            }
         }
     }
 

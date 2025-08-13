@@ -384,6 +384,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8109975222830425909}
     m_Modifications:
+    - target: {fileID: 2791965402734574074, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830672, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -469,6 +473,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830673, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
+      propertyPath: m_Text
+      value: "4 x 10 \u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791965402905830673, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -488,6 +496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputFieldExecution
       objectReference: {fileID: 0}
+    - target: {fileID: 2791965403273187248, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
+      propertyPath: m_text
+      value: "4 x 10 \u200B\u200B"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
 --- !u!224 &6211421298280812514 stripped
@@ -502,6 +514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8109975222830425909}
     m_Modifications:
+    - target: {fileID: 2791965402734574074, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830672, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -587,6 +603,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830673, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
+      propertyPath: m_Text
+      value: "Leg press\u200B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791965402905830673, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -625,6 +645,10 @@ PrefabInstance:
     - target: {fileID: 2791965402905830703, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Name
       value: InputFieldName
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791965403273187248, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
+      propertyPath: m_text
+      value: "Leg press\u200B\u200B"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}

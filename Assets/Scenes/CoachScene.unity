@@ -1242,6 +1242,8 @@ MonoBehaviour:
   workoutName: {fileID: 1049630025}
   buttonAddDayWorkout: {fileID: 1519145062}
   scrollViewWorkout: {fileID: 4502031112419410701, guid: a190714be707e4202a381aa89addb737, type: 3}
+  scrollViewWorkoutWithoutInputField: {fileID: 4502031112419410701, guid: 2b98b446ff59242b4badf57ae1289376, type: 3}
+  panelExercise: {fileID: 8109975222830425908, guid: d604d6955fcf74baa86f1d24e75de7a3, type: 3}
   canvasWorkout: {fileID: 397317689}
   canvasAddDayWorkout: {fileID: 1127235949}
 --- !u!114 &1214944251

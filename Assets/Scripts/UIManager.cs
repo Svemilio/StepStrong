@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
     GameObject buttonAddDayWorkout;
     [SerializeField]
     GameObject scrollViewWorkout;
+    [SerializeField]
+    GameObject scrollViewWorkoutWithoutInputField;
+    [SerializeField]
+    GameObject panelExercise;
 
     public Canvas canvasWorkout;
     public Canvas canvasAddDayWorkout;
@@ -90,16 +94,24 @@ public class UIManager : MonoBehaviour
     }
 
     //instance a new scroll view vertical for the workout data
-    public void AddWorkout()
+    public void AddWorkout(bool loadingCase = false)
     {
         Vector2 currentSize = contentWorkouts.sizeDelta;
         currentSize.x = currentSize.x * 2;
         contentWorkouts.sizeDelta = currentSize;
 
-        GameObject instance = Instantiate(scrollViewWorkout, contentWorkouts.transform);
+        GameObject instance;
+        if (!loadingCase)
+        {
+            instance = Instantiate(scrollViewWorkout, contentWorkouts.transform);
+        }
+        else
+        {
+            instance = Instantiate(scrollViewWorkoutWithoutInputField, contentWorkouts.transform);
+        }
 
         RectTransform newRectTransform = instance.transform.Find("Viewport/Content").GetComponent<RectTransform>();
-        
+
         contentExercises.Add(newRectTransform);
 
         canvasAddDayWorkout.gameObject.SetActive(true);
@@ -145,5 +157,15 @@ public class UIManager : MonoBehaviour
         {
             ScrollNextWorkout();
         }
+    }
+
+    public GameObject GetPanelExerciseWithData(string exerciseName, string exerciseExecution)
+    {
+        GameObject currentPanelExercise = panelExercise;
+
+        currentPanelExercise.transform.Find("InputFieldName").GetComponent<TMP_InputField>().text = exerciseName;
+        currentPanelExercise.transform.Find("InputFieldExecution").GetComponent<TMP_InputField>().text = exerciseExecution;
+
+        return currentPanelExercise;
     }
 }
