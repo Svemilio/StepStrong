@@ -386,7 +386,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2791965402734574074, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830672, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Pivot.x
@@ -474,7 +474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830673, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Text
-      value: "4 x 10 \u200B"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830673, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.size
@@ -498,7 +498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2791965403273187248, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_text
-      value: "4 x 10 \u200B\u200B"
+      value: "\u200B"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
@@ -516,7 +516,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2791965402734574074, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830672, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Pivot.x
@@ -604,7 +604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830673, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_Text
-      value: "Leg press\u200B"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2791965402905830673, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_OnDeselect.m_PersistentCalls.m_Calls.Array.size
@@ -648,7 +648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2791965403273187248, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}
       propertyPath: m_text
-      value: "Leg press\u200B\u200B"
+      value: "\u200B"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183e23c18a5b54889a9bb3d72a9734ce, type: 3}

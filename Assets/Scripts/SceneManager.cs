@@ -144,6 +144,8 @@ public class SceneManager : MonoBehaviour
                     var exercise = uIManager.GetPanelExerciseWithData(e.ExecutionName, e.ExecutionDescription);
                     uIManager.AddExerciseToScrollView(exercise.transform);
                 }
+                var emptyExeercise = uIManager.GetPanelExerciseWithoutData();
+                uIManager.AddExerciseToScrollView(emptyExeercise.transform);
                 uIManager.ScrollNextWorkout();
             }
         }

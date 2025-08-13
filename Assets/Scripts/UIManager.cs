@@ -161,11 +161,17 @@ public class UIManager : MonoBehaviour
 
     public GameObject GetPanelExerciseWithData(string exerciseName, string exerciseExecution)
     {
-        GameObject currentPanelExercise = panelExercise;
+        GameObject currentPanelExercise = Instantiate(panelExercise);
 
         currentPanelExercise.transform.Find("InputFieldName").GetComponent<TMP_InputField>().text = exerciseName;
         currentPanelExercise.transform.Find("InputFieldExecution").GetComponent<TMP_InputField>().text = exerciseExecution;
 
+        return currentPanelExercise;
+    }
+
+    public GameObject GetPanelExerciseWithoutData()
+    {
+        GameObject currentPanelExercise = panelExercise;
         return currentPanelExercise;
     }
 }
